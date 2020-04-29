@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ItemType>GenericProject</ItemType>
+    <ProjectGuid>{7C6B93D3-14FA-4136-9B69-86FBC6222D7E}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Default|AnyCPU' ">
+    <OutputPath>.\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="index.html" />
+    <None Include="Scripts\CanvasEventHandler.js" />
+    <None Include="Styles\index.css" />
+    <None Include="Styles\defaults.css" />
+    <None Include="Styles\normalize.css" />
+    <None Include="Navigation\NavBar.js" />
+    <None Include="Navigation\NavigationBarJS.js" />
+    <None Include="Navigation\NavigationBar.html" />
+    <None Include="Scripts\model.js" />
+    <None Include="Scripts\data.js" />
+  </ItemGroup>
+</Project>

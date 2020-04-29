@@ -1,0 +1,39 @@
+﻿header{
+    text-align: center;
+}
+header h1{
+    display: inline-block;
+    font-size: 5em;
+}
+header h3{
+    display: inline-block;
+    font-size: 2em;
+}
+header pre{
+    display: inline-block;
+    font-size: 1.5em;
+}
+.center_container{
+    text-align: center;
+}
+    .center_container > canvas {
+        display: inline-block;
+        background-color: #bfbfbb;
+    }
+    .center_container > button {
+        background-color: #022E6D;
+        font-size: 2em;
+        padding-bottom: .25em;
+        padding-top: .25em;
+        padding-left: .85em;
+        padding-right: .85em;
+        margin-left: 5%;
+        margin-right: 5%;
+        color: white;
+    }
+        .center_container > button:hover {
+            background-color: #0066ff;
+        }
+#canvas-block{
+    display: none;
+}

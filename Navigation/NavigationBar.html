@@ -1,0 +1,148 @@
+﻿<!-- Make sure to include:
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    In the head of each webpage
+    AND
+        <script src="Navigation/NavigationBarJS.js"></script>
+        <script src="Navigation/NavBar.js"></script>
+    At the bottom of each body
+-->
+<style>
+
+
+    ul.nav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li.navitem {
+        float: left;
+    }
+
+        li.navitem a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+            li.navitem a:hover, dropdown:hover .dropbtn {
+                background-color: #0066ff;
+            }
+
+    li.dropdown {
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #DCDCDC;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    div.dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        text-align: left;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .active {
+        background-color: #022E6D;
+    }
+
+    /*Change the width if the website has custom margins*/
+    .sticky {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .container {
+        position: relative;
+        text-align: center;
+    }
+    /*********************** Mobile Layout ***************************/
+    @media screen and (max-width: 1000px) {
+        li.navitem a, .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 24px 26px;
+            text-decoration: none;
+            font-size: 30px;
+        }
+
+        div.dropdown-content a {
+            color: black;
+            padding: 22px 26px;
+            text-decoration: none;
+            text-align: left;
+            display: block;
+            font-size: 30px;
+        }
+    }
+</style>
+
+<!--
+    In the HEAD add:
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    At the top of each BODY add
+        <nav id="nav-placeholder"></nav>
+
+    At the bottom of each BODY add:
+        <script src="Navigation/NavigationBarJS.js"></script>
+        <script src="Navigation/NavBar.js"></script>
+
+
+    Below the
+        <ul class='nav'>
+    Will contain all the webpage links as li
+    For a non drop down use:
+        <li class="navitem" id="-Page"><a href="url">Page Name</a></li>
+    For a drop dow use:
+        <li class="dropdown navitem" id="-Page">
+            <a href="javascript:void(0)" class="dropbtn">Dropdown Name</a>
+                <div class="dropdown-content">
+                    <a href="url">Page Name 1</a>
+                    <a href="url">Page Name 2</a>
+                    <a href="url">Page Name 3</a>
+                    <a href="url">Page Name 4</a>
+                    <a href="url">Page Name 5</a>
+                </div>
+        </li>
+-->
+
+<nav id="nav-placeholder">
+    <ul class="nav">
+        <li class="navitem" id="Home-Page"><a href="index.html">Home</a></li>
+    </ul>
+</nav>
+
+<!--
+    This will show the active page, if the active page's title contains uniquely identifiying data
+    Make sure that the element ID matches the ID from above
+-->
+<script>var title = document.title;
+
+    if (title.includes("Home"))
+        document.getElementById("Home-Page").classList.add("active");
+    else if (title.includes("Main"))
+        document.getElementById("Main-Page").classList.add("active");</script>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <meta charset="utf-8" />
+
+    <title>Home | Number Detection</title>
+
+    <link href="Styles/normalize.css" type="text/css" rel="stylesheet" />
+    <link href="Styles/defaults.css" type="text/css" rel="stylesheet" />
+    <link href="Styles/index.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <nav id="nav-placeholder"></nav>
+
+    <!-- Trainning Libraries -->
+    <!-- Import TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <!-- Import tfjs-vis     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.2/dist/tfjs-vis.umd.min.js"></script>
+    -->
+    <!-- Import the data file -->
+    <script src="Scripts/data.js" type="module"></script>
+
+
+
+    <header>
+        <h1>Numeric Detector</h1><br />
+        <h3 id="updater">Start drawing to begin.</h3> <br />
+        <pre id="labels"></pre>
+    </header>
+    <br />
+    <button id="logger" onclick="">Log Data</button>
+    <div class="center_container" id="canvas-block">
+        <canvas id="imageView" width="400" height="400"></canvas>
+        <br />
+        <button id="submit" onclick="" >Submit</button>
+        <button id="reset" onclick="" type="reset">Clear</button>
+    </div>
+    
+
+
+    <script src="Scripts/CanvasEventHandler.js"></script>
+    <script src="Scripts/model.js" type="module"></script>
+
+    <script src="Navigation/NavigationBarJS.js"></script>
+    <script src="Navigation/NavBar.js"></script>
+</body>
+</html>
