@@ -13,6 +13,10 @@ header pre{
     display: inline-block;
     font-size: 1.5em;
 }
+header p {
+    display: inline-block;
+    font-size: 1em;
+}
 .center_container{
     text-align: center;
 }

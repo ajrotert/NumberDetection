@@ -7,12 +7,17 @@
         currY = 0,
         dot_flag = false;
 
-    var x = "black",
-        y = 20;
+    var x = "black";
+    var line_width = 10;
 
     function init() {
         canvas = document.getElementById('imageView');
         ctx = canvas.getContext("2d");
+        ctx.lineJoin = 'round';
+        ctx.lineCap = 'round';
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
         w = canvas.width;
         h = canvas.height;
 
@@ -35,9 +40,10 @@
         ctx.moveTo(prevX, prevY);
         ctx.lineTo(currX, currY);
         ctx.strokeStyle = x;
-        ctx.lineWidth = y;
+        ctx.lineWidth = line_width;
         ctx.stroke();
         ctx.closePath();
+
     }
 
     function clear() {
@@ -79,5 +85,8 @@
 };
 
 document.getElementById("reset").onclick = function () {
-    document.getElementById('imageView').getContext("2d").clearRect(0, 0, 400, 400);
+    var ctx = document.getElementById('imageView').getContext("2d");
+    ctx.clearRect(0, 0, 400, 400);
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, 400, 400);
 };

@@ -150,6 +150,50 @@ async function showAccuracy(model, data) {
     var l = await labels.data();
 
     document.getElementById("labels").innerHTML = "Predicted Values: " + p.slice(0, 9) + "<br>" + "Actual Values: " + l.slice(0, 9);
+    document.getElementById("samples").textContent = "Sample data batch: ";
 
     labels.dispose();
 }
+
+//TODO: need to get the canvas as an array of numbers, convert that to tf.Tensor, resize it to 28x28 and make it predict a value
+
+document.getElementById("submit").onclick = async function () {
+    var CanvasData = document.getElementById("imageView").getContext("2d").getImageData(0, 0, 400, 400);
+    console.log("Canvas Data Loaded");
+
+    var tfImage = tf.browser.fromPixels(CanvasData, 1);
+    console.log("Tensor Created");
+
+    var tfResizedImage = tf.image.resizeNearestNeighbor(tfImage, [28, 28]);
+    console.log("Resized Tensor: ");
+
+    console.log(await tfResizedImage.data());
+
+    tfResizedImage = tf.cast(tfResizedImage, 'float32');
+    tfResizedImage = tf.abs(tfResizedImage.sub(tf.scalar(255))).div(tf.scalar(255)).flatten();
+    console.log("Tensor Modified");
+
+    tfResizedImage = tfResizedImage.reshape([1, 28, 28, 1]);
+    console.log("Tensor reshaped");
+
+    var results = global_model.predict(tfResizedImage);
+
+    var p = await results.data();
+
+    p = await p.map(function (x) { return x * 100; })
+    console.log(p);
+    updater.textContent = "Best Guess: " + await getBest(p);
+    results.dispose();
+};
+
+var getBest = function (p) {
+    var best = 0;
+    var best_i = 0;
+    for (var i = 0; i < p.length; i++) {
+        if (p[i] > best) {
+            best = p[i];
+            best_i = i;
+        }
+    }
+    return best_i;
+};
