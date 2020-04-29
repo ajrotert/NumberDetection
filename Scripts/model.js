@@ -11,6 +11,7 @@ async function run() {
 
     const model = getModel();
     //tfvis.show.modelSummary({ name: 'Model Architecture' }, model);
+
     global_model = model;
 
     updater.textContent = "Model Training";
@@ -37,6 +38,7 @@ function getModel() {
     // In the first layer of our convolutional neural network we have 
     // to specify the input shape. Then we specify some parameters for 
     // the convolution operation that takes place in this layer.
+
     model.add(tf.layers.conv2d({
         inputShape: [IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_CHANNELS],
         kernelSize: 5,
