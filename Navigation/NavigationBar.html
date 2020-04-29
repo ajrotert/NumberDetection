@@ -133,6 +133,8 @@
 <nav id="nav-placeholder">
     <ul class="nav">
         <li class="navitem" id="Home-Page"><a href="index.html">Home</a></li>
+        <li class="navitem" id="About-Page"><a href="about.html">About</a></li>
+        <li class="navitem" id="Source-Page"><a href="sources.html">Resources Used</a></li>
     </ul>
 </nav>
 
@@ -144,5 +146,9 @@
 
     if (title.includes("Home"))
         document.getElementById("Home-Page").classList.add("active");
-    else if (title.includes("Main"))
-        document.getElementById("Main-Page").classList.add("active");</script>
+    else if (title.includes("About"))
+        document.getElementById("About-Page").classList.add("active");
+    else if (title.includes("Resources"))
+        document.getElementById("Source-Page").classList.add("active");
+
+    </script>

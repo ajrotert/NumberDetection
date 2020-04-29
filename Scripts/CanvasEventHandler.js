@@ -8,7 +8,7 @@
         dot_flag = false;
 
     var x = "black";
-    var line_width = 10;
+    var line_width = 45;
 
     function init() {
         canvas = document.getElementById('imageView');

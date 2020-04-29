@@ -14,6 +14,7 @@ async function run() {
     global_model = model;
 
     updater.textContent = "Model Training";
+    document.getElementById("samples").textContent = "(Less than a minute remains)";
     await train(model, data);
     updater.textContent = "Model Done Training";
 
@@ -51,6 +52,7 @@ function getModel() {
 
     // Repeat another conv2d + maxPooling stack. 
     // Note that we have more filters in the convolution.
+
     model.add(tf.layers.conv2d({
         kernelSize: 5,
         filters: 16,
@@ -155,8 +157,6 @@ async function showAccuracy(model, data) {
     labels.dispose();
 }
 
-//TODO: need to get the canvas as an array of numbers, convert that to tf.Tensor, resize it to 28x28 and make it predict a value
-
 document.getElementById("submit").onclick = async function () {
     var CanvasData = document.getElementById("imageView").getContext("2d").getImageData(0, 0, 400, 400);
     console.log("Canvas Data Loaded");
@@ -180,9 +180,13 @@ document.getElementById("submit").onclick = async function () {
 
     var p = await results.data();
 
-    p = await p.map(function (x) { return x * 100; })
+    p = await p.map(function (x) { return (x * 100); })
     console.log(p);
     updater.textContent = "Best Guess: " + await getBest(p);
+    document.getElementById("labels").innerHTML = "0: " + p[0].toFixed(2) + "%" + "\t " + "1: " + p[1].toFixed(2) + "%" + "\t " + "2: " + p[2].toFixed(2) + "%" + "\t " + "3: " + p[3].toFixed(2) + "%" + "\t " + 
+        "4: " + p[4].toFixed(2) + "%" + "<br>" + "5: " + p[5].toFixed(2) + "%" + "\t " + "6: " + p[6].toFixed(2) + "%" + "\t " + "7: " + p[7].toFixed(2) + "%" + "\t " + "8: " + p[8].toFixed(2) + "%" + "\t " + "9: " + p[9] .toFixed(2) + "%";
+    document.getElementById("samples").textContent = "Result Accuracy: ";
+
     results.dispose();
 };
 

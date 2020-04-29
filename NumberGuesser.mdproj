@@ -20,5 +20,7 @@
     <None Include="Navigation\NavigationBar.html" />
     <None Include="Scripts\model.js" />
     <None Include="Scripts\data.js" />
+    <None Include="about.html" />
+    <None Include="sources.html" />
   </ItemGroup>
 </Project>

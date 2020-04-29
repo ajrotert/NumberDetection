@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <meta charset="utf-8" />
+
+    <title>About | Number Detection</title>
+
+    <link href="Styles/normalize.css" type="text/css" rel="stylesheet" />
+    <link href="Styles/defaults.css" type="text/css" rel="stylesheet" />
+    <link href="Styles/index.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <nav id="nav-placeholder"></nav>
+
+    <header>
+        <h1>Numeric Detector</h1><br />
+        <h3 id="updater">About Page</h3> <br />
+    </header>
+    <main>
+        <p>
+            <b>Project Description:</b> Number Detector creates and uses a machine learning model to predict a hand written
+            number. The model is trained using the MNIST dataset, and is retrained everytime the webpage loads.
+            The model trains and runs locally, using javascript.
+            <br />
+            <br />
+            <ol>The <b>project design</b> is broken down into three parts:
+                <li><b>(Model)</b> The CNN is a tensorflow sequential model. The model has six layers, with the final layer
+                having ten output classes. The model is formed based on googles CNN walkthrough. </li>
+                <li><b>(Training)</b> Upon the website loading the model will begin training. This is done using googles data
+                class, based on MNIST. It takes about a minute for the model to train. Once training is complete
+                sample data is displayed to show accuracy. </li>
+                <li><b>(Predict)</b> The project uses HTML canvas to create a drawable pad. Once the drawing is complete
+                the user can submit the drawing. The canvas drawing is converted to a tensorflow tensor, resized,
+                color inverted, and reshaped. The model then makes a prediction based on the tensor, and results
+                are displayed.</li>
+            </ol>
+
+            </p>
+        <p>
+            <b>Created by: </b> Andrew Rotert, and Caleb Nielsen.
+        </p>
+    </main>
+    <br />
+
+    <script src="Navigation/NavigationBarJS.js"></script>
+    <script src="Navigation/NavBar.js"></script>
+</body>
+</html>
