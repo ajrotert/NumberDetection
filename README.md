@@ -8,7 +8,7 @@ Machine Learning project using MNIST dataset
 
 
 # Motivation
-Being an avid Hunter I want to build a meaningful app.
+Create a website that can detect handwritten numbers
 
 
 # Tech
